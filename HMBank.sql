@@ -1,3 +1,6 @@
+-- TASK 1
+
+
 create database HMBank;
 
 use HMBank;
@@ -34,6 +37,16 @@ create table Transactions (
     transaction_date timestamp default current_timestamp,
     foreign key (account_id) references Accounts(account_id) on delete cascade
 );
+
+
+
+
+
+
+
+
+
+-- TASK 2 
 
 -- insertion of sample data into the customer table
 
@@ -165,5 +178,159 @@ select * from Transactions where account_id = 1;
 -- 10. Write a SQL query to Calculate the interest accrued on savings accounts based on a given interest rate. 
 -- here im taking 2% interest 
 select account_id, account_type, balance, (balance * 0.02) as interest_accured from Accounts where account_type = 'savings';
+
+-- 11. Write a SQL query to Identify accounts where the balance is less than a specified overdraft limit.
+-- lets say the over_draft limit is 500
+
+select * from Accounts where balance < 500;
+
+-- 12. Write a SQL query to Find customers not living in a specific city. 
+
+select * from Customers where address not like '%Miami%';
+
+
+
+
+
+
+
+-- TASK 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
