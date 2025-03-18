@@ -98,10 +98,26 @@ SET SQL_SAFE_UPDATES = 1; -- Turn safe mode back on
 
 select first_name, last_name, account_type, email from Customers;
 
--- by using joins
+alter table Customers drop column account_type;
 
+-- by using joins
+-- i first tried by adding the new column in customers and then join the acc type in account table to customers 
 select c.first_name, c.last_name, a.account_type, c.email
 from Customers c
 join Accounts a on c.customer_id = a.customer_id;
+
+-- 2. Write a SQL query to list all transaction corresponding customer. 
+
+SELECT 
+    c.first_name, 
+    c.last_name, 
+    t.transaction_id, 
+    t.amount, 
+    t.transaction_type, 
+    t.transaction_date
+FROM Customers c
+JOIN Accounts a ON c.customer_id = a.customer_id
+JOIN Transactions t ON a.account_id = t.account_id;
+
 
 
