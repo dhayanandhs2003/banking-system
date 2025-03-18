@@ -151,11 +151,11 @@ SET SQL_SAFE_UPDATES = 0;
 delete from Accounts where balance = 0 and account_type = 'savings';
 SET SQL_SAFE_UPDATES = 1;
 
--- i'm inserting the same row just to avoid confusion
+-- NOTE i'm inserting the same row just to avoid confusion 
 insert into Accounts (customer_id, account_type, balance) values (1, 'savings', 5500.00); -- i mistakenly added the row without including the account_id so it got added in the last row
 delete from Accounts where account_id = 11;
 
-insert into Accounts (account_id, customer_id, account_type, balance) values (1, 1, 'savings', 5500.00);
+insert into Accounts (account_id, customer_id, account_type, balance) values (1, 1, 'savings', 5500.00); 
 
 -- 6. Write a SQL query to Find customers living in a specific city. 
 
@@ -177,6 +177,7 @@ select * from Transactions where account_id = 1;
 
 -- 10. Write a SQL query to Calculate the interest accrued on savings accounts based on a given interest rate. 
 -- here im taking 2% interest 
+
 select account_id, account_type, balance, (balance * 0.02) as interest_accured from Accounts where account_type = 'savings';
 
 -- 11. Write a SQL query to Identify accounts where the balance is less than a specified overdraft limit.
@@ -195,6 +196,150 @@ select * from Customers where address not like '%Miami%';
 
 
 -- TASK 3
+
+-- 1. Write a SQL query to Find the average account balance for all customers.  
+
+select avg(balance) as avg_bal_of_all from Accounts;
+
+-- 2. Write a SQL query to Retrieve the top 10 highest account balances.  
+
+select * from Accounts order by balance desc; 
+
+-- 3. Write a SQL query to Calculate Total Deposits for All Customers in specific date.
+
+select sum(amount) as total_deposits from Transactions where transaction_type = 'deposit' and transaction_date like '%2025-03-18%';
+
+select sum(amount) as total_deposits from Transactions where transaction_type = 'deposit' and DATE(transaction_date) = '2025-03-18';
+
+-- 4. Write a SQL query to Find the Oldest and Newest Customers. 
+
+-- oldest customer
+select * from Customers order by DOB asc limit 1;
+
+-- newest customer
+select * from Customers order by DOB desc limit 1;
+
+-- i also tried to retreive them both with the same query using UNION
+
+
+
+-- 5. Write a SQL query to Retrieve transaction details along with the account type. 
+select * from Transactions;
+select * from Accounts;
+
+select t.*, a.account_type from Transactions t 
+join Accounts a on t.account_id = a.account_id;
+
+-- 6. Write a SQL query to Get a list of customers along with their account details. 
+
+select c.first_name, c.last_name, a.*  from Accounts a 
+join Customers c on a.customer_id = c.customer_id;
+
+-- 7. Write a SQL query to Retrieve transaction details along with customer information for a specific account. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
