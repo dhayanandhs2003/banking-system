@@ -108,16 +108,22 @@ join Accounts a on c.customer_id = a.customer_id;
 
 -- 2. Write a SQL query to list all transaction corresponding customer. 
 
-SELECT 
+select 
     c.first_name, 
     c.last_name, 
     t.transaction_id, 
     t.amount, 
     t.transaction_type, 
     t.transaction_date
-FROM Customers c
-JOIN Accounts a ON c.customer_id = a.customer_id
-JOIN Transactions t ON a.account_id = t.account_id;
+from Customers c
+join Accounts a on c.customer_id = a.customer_id
+join Transactions t on a.account_id = t.account_id;
+
+-- 3. Writing a SQL query to increase the balance of a specific account by a certain amount.
+
+update Accounts set balance = balance + 500 where account_id = 1;
+
+select * from Accounts;
 
 
 
