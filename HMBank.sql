@@ -125,5 +125,45 @@ update Accounts set balance = balance + 500 where account_id = 1;
 
 select * from Accounts;
 
+-- 4. Writing a SQL query to Combine first and last names of customers as a full_name. 
+
+select concat(first_name,' ', last_name) as full_name from Customers;
+
+-- 5. Write a SQL query to remove accounts with a balance of zero where the account type is savings. 
+
+select * from Accounts;
+
+update Accounts set balance = 0.00 where account_id = 1;
+SET SQL_SAFE_UPDATES = 0;
+delete from Accounts where balance = 0 and account_type = 'savings';
+SET SQL_SAFE_UPDATES = 1;
+
+-- i'm inserting the same row just to avoid confusion
+insert into Accounts (customer_id, account_type, balance) values (1, 'savings', 5500.00); -- i mistakenly added the row without including the account_id so it got added in the last row
+delete from Accounts where account_id = 11;
+
+insert into Accounts (account_id, customer_id, account_type, balance) values (1, 1, 'savings', 5500.00);
+
+-- 6. Write a SQL query to Find customers living in a specific city. 
+
+select * from Customers where address like '%Miami%';
+
+-- 7. Write a SQL query to Get the account balance for a specific account.
+
+select account_id, balance from Accounts where balance = 0.00;
+
+-- 8. Write a SQL query to List all current accounts with a balance greater than $1,000. 
+
+select * from Accounts where account_type = 'current' and balance > 1000;
+
+-- 9. Write a SQL query to Retrieve all transactions for a specific account. 
+-- i have not added a multiple transaction for single account so i'm adding it here.
+insert into Transactions (transaction_id, account_id, transaction_type, amount) values (1, 1, 'deposit', 1000.00);
+
+select * from Transactions where account_id = 1;
+
+-- 10. Write a SQL query to Calculate the interest accrued on savings accounts based on a given interest rate. 
+-- here im taking 2% interest 
+select account_id, account_type, balance, (balance * 0.02) as interest_accured from Accounts where account_type = 'savings';
 
 
