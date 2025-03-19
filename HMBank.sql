@@ -237,7 +237,17 @@ join Customers c on a.customer_id = c.customer_id;
 
 -- 7. Write a SQL query to Retrieve transaction details along with customer information for a specific account. 
 
+select t.*, c.* from Customers c
+join Accounts a on c.customer_id = a.customer_id
+join Transactions t on a.account_id = t.transaction_id
+where t.amount = 1000.00;
 
+-- 8. Write a SQL query to Identify customers who have more than one account. 
+
+select * from Customers;
+select * from Accounts;
+
+select a.customer_id, 
 
 
 
