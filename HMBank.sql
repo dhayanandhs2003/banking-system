@@ -247,7 +247,14 @@ where t.amount = 1000.00;
 select * from Customers;
 select * from Accounts;
 
-select a.customer_id, 
+use hmbank;
+
+select customer_id, count(account_id) as num_accounts
+from Accounts
+group by customer_id
+having count(account_id) > 1;
+
+
 
 
 
