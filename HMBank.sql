@@ -389,7 +389,30 @@ insert into accounts(account_id, customer_id, account_type, balance) values
 
 select first_name, last_name from Customers where customer_id in (select customer_id from Accounts group by customer_id having count(distinct account_type) > 1);
 
+-- 8. Calculate the percentage of each account type out of the total number of accounts. 
 
+select count(*) from accounts; --  total no of acc
+
+select account_type, count(*) as count_accounts from accounts group by account_type; -- no of acc with each type
+
+select account_type, 
+       count(*) as count_accounts,
+       (count(*) * 100.0) / (select count(*) from accounts) as percentage
+from accounts group by account_type;
+
+-- 9. Retrieve All Transactions for a Customer with a Given customer_id
+
+select * from Transactions;
+
+select t.* from Transactions t
+join Accounts a on t.account_id = a.account_id where a.customer_id = 1;
+
+-- 10. Calculate the Total Balance for Each Account Type Using a Subquery
+
+select sum(balance) from Accounts group by account_type;
+
+select account_type, (select sum(balance) from Accounts a2 where a2.account_type = a1.account_type) as total_balance
+from Accounts a1 group by account_type;
 
 
 
