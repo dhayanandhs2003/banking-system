@@ -1,3 +1,8 @@
+/*
+1. Write a program that takes the customer's credit score and annual income as input. 
+2. Use conditional statements (if-else) to determine if the customer is eligible for a loan. 
+3. Display an appropriate message based on eligibility.
+*/
 import java.util.Scanner;
 class Task1{
     public static void main(String args[]){
