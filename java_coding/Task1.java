@@ -17,5 +17,6 @@ class Task1{
         else{
             System.out.println("Sorry! You are not eligible for applying loan.");
         }
+        sc.close();
     }
 }
