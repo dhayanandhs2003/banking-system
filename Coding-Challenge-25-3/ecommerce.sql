@@ -195,7 +195,35 @@ update products set min_stock_quantity = 5;
 
 -- 10. Calculate the Total Amount Spent by Each Customer. 
 
+select * from customer;
 
+select * from orders;
+
+select c.customer_id, c.first_name, c.last_name, sum(o.total_price) as total_spent
+from customers c
+join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.first_name, c.last_name;
+
+-- 11. Find the Average Order Amount for Each Customer.
+
+select c.customer_id, c.first_name, c.last_name, avg(o.total_price) as avg_order_amount
+from customers c
+join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.first_name, c.last_name;
+
+-- 12. Count the Number of Orders Placed by Each Customer.
+
+select c.customer_id, c.first_name, c.last_name, count(o.order_id) as total_orders
+from customers c
+left join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.first_name, c.last_name;
+
+-- 13. Find the Maximum Order Amount for Each Customer. 
+
+select c.customer_id, c.first_name, c.last_name, max(o.total_price) as max_order_amount
+from customers c
+join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.first_name, c.last_name;
 
 
 
