@@ -225,7 +225,45 @@ from customers c
 join orders o on c.customer_id = o.customer_id
 group by c.customer_id, c.first_name, c.last_name;
 
+-- 14. Get Customers Who Placed Orders Totaling Over $1000. 
 
+select c.customer_id, c.first_name, c.last_name, sum(o.total_price) as total_spent
+from customers c
+join orders o on c.customer_id = o.customer_id
+group by c.customer_id, c.first_name, c.last_name
+having total_spent > 1000;
+
+-- 15. Subquery to Find Products Not in the Cart. 
+
+select * from products 
+where product_id not in (select distinct product_id from cart);
+
+-- 16. Subquery to Find Customers Who Haven't Placed Orders.
+
+select * from customers 
+where customer_id not in (select distinct customer_id from orders);
+
+-- 17. Subquery to Calculate the Percentage of Total Revenue for a Product.
+
+select p.product_id, 
+       p.name, 
+       sum(oi.quantity * p.price) as product_revenue,
+       (sum(oi.quantity * p.price) * 100) / (select sum(oi.quantity * p.price) from order_items oi join products p on oi.product_id = p.product_id) as revenue_percentage
+from order_items oi
+join products p on oi.product_id = p.product_id
+group by p.product_id, p.name;
+
+-- 18. Subquery to Find Products with Low Stock. 
+
+select product_id, name, stockQuantity from products 
+where stockQuantity < (select avg(stockQuantity) from products);
+
+-- 19. Subquery to Find Customers Who Placed High-Value Orders.
+
+select c.customer_id, c.first_name, c.last_name, o.order_id, o.total_price
+from customers c
+join orders o on c.customer_id = o.customer_id
+where o.total_price > (select avg(total_price) from orders);
 
 
 
