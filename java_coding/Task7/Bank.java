@@ -1,10 +1,6 @@
 package Task7;
 
 
-import Task7.Customer;   // Import Customer class
-import Task7.Account;    // Import Account class
-
-
 // Bank.java
 import java.util.Scanner;
 
