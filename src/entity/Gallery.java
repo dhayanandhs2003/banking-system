@@ -1,32 +1,32 @@
 package entity;
 
 public class Gallery {
-    private int galleryId;
+    private int gallery_id;  // Changed from galleryId
     private String name;
     private String description;
     private String location;
-    private int curatorId;  // Renamed from curatorArtistId
-    private String openingHours;
+    private int curator_id;  // Changed from curatorId
+    private String opening_hours;  // Changed from openingHours
 
     public Gallery() {}
 
-    public Gallery(int galleryId, String name, String description, String location, int curatorId, String openingHours) {
-        this.galleryId = galleryId;
+    public Gallery(int gallery_id, String name, String description, String location, int curator_id, String opening_hours) {
+        this.gallery_id = gallery_id;
         this.name = name;
         this.description = description;
         this.location = location;
-        this.curatorId = curatorId;  // Renamed from curatorArtistId
-        this.openingHours = openingHours;
+        this.curator_id = curator_id;
+        this.opening_hours = opening_hours;
     }
 
     // Getters and Setters
 
-    public int getGalleryId() {
-        return galleryId;
+    public int getGallery_id() {  // Updated method name
+        return gallery_id;
     }
 
-    public void setGalleryId(int galleryId) {
-        this.galleryId = galleryId;
+    public void setGallery_id(int gallery_id) {  // Updated method name
+        this.gallery_id = gallery_id;
     }
 
     public String getName() {
@@ -53,19 +53,19 @@ public class Gallery {
         this.location = location;
     }
 
-    public int getCuratorId() {  // Updated getter method
-        return curatorId;
+    public int getCurator_id() {  // Updated method name
+        return curator_id;
     }
 
-    public void setCuratorId(int curatorId) {  // Updated setter method
-        this.curatorId = curatorId;
+    public void setCurator_id(int curator_id) {  // Updated method name
+        this.curator_id = curator_id;
     }
 
-    public String getOpeningHours() {
-        return openingHours;
+    public String getOpening_hours() {  // Updated method name
+        return opening_hours;
     }
 
-    public void setOpeningHours(String openingHours) {
-        this.openingHours = openingHours;
+    public void setOpening_hours(String opening_hours) {  // Updated method name
+        this.opening_hours = opening_hours;
     }
 }
