@@ -7,7 +7,8 @@ public class Test3 {
 		System.out.println("hello");
 		int s = c.nextInt();
 		System.out.println(s);
-		int a = s.nextInt();
+		// int a = s.nextInt();
+		c.close();
 	}
 
 	public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class Test3 {
 		t.add();
 		
 		Scanner s = new Scanner(System.in);
+		s.close();
 	}
 
 }
