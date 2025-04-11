@@ -12,10 +12,10 @@ public class TestArtworkRetrieval {
         try {
             VirtualArtGalleryImpl gallery = new VirtualArtGalleryImpl();
 
-            int testArtworkId = 1; // Change this to an actual artwork_id from your DB
+            int testArtworkId = 1; // an actual artwork_id from DB
             Artwork artwork = gallery.getArtworkById(testArtworkId);
 
-            System.out.println("✅ Artwork Retrieved:");
+            System.out.println("Artwork Retrieved:");
             System.out.println("ID: " + artwork.getArtworkId());
             System.out.println("Title: " + artwork.getTitle());
             System.out.println("Description: " + artwork.getDescription());

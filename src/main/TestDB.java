@@ -11,7 +11,7 @@ public class TestDB {
     public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, ArtworkNotFoundException {
         Connection conn = DBConnection.getConnection();
         if (conn != null) {
-            System.out.println("✅ Test Successful");
+            System.out.println("Test Successful");
         }
         
      // testing the exception

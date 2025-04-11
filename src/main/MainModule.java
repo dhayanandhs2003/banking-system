@@ -16,7 +16,7 @@ public class MainModule {
             // Test: Get artwork by ID
             int testArtworkId = 1;
             Artwork artwork = galleryService.getArtworkById(testArtworkId);
-            System.out.println("🎨 Artwork Found: " + artwork.getTitle());
+            System.out.println("Artwork Found: " + artwork.getTitle());
 
             // You can uncomment and test other methods after implementing them
             /*

@@ -21,7 +21,6 @@ public class DBConnection {
 
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, pass);
-            System.out.println("Connected to DB!");
         }
         return connection;
     }
