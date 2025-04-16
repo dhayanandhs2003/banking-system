@@ -23,7 +23,6 @@ public class ArtworkServiceTest {
 
     @Test
     public void testAddArtwork() {
-        // Using a valid artist_id from your table (e.g., 1)
         Artwork artwork = new Artwork(6, "Artwork 0", "A sample test artwork", LocalDate.now(), "Oil", "test.jpg", 1);
         boolean result = service.addArtwork(artwork);
         assertTrue(result, "Artwork should be added successfully.");

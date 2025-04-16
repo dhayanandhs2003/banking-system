@@ -36,7 +36,7 @@ public class VirtualArtGalleryImpl implements IVirtualArtGallery {
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0; // Returns true if artwork is added
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e);
             return false;
         }
     }
@@ -56,7 +56,7 @@ public class VirtualArtGalleryImpl implements IVirtualArtGallery {
             int affectedRows = ps.executeUpdate();
             return affectedRows > 0; // Returns true if update is successful
         } catch (SQLException e) {
-            e.printStackTrace();
+        	System.out.println(e);
             return false;
         }
     }

@@ -29,21 +29,21 @@ public class GalleryServiceTest {
 
     @Test
     void testAddGallery() {
-        Gallery gallery = new Gallery(0, "Test Gallery", "Description", "Test Location", 1, "10 AM - 5 PM");
+        Gallery gallery = new Gallery(7, "Test Gallery 1", "Description 1", "Test Location 1", 1, "10 AM - 5 PM");
         boolean result = service.addGallery(gallery);
         assertTrue(result, "Gallery should be added successfully.");
     }
 
     @Test
     void testUpdateGallery() {
-        Gallery gallery = new Gallery(1, "Updated Gallery", "Updated Description", "Updated Location", 2, "9 AM - 6 PM");
+        Gallery gallery = new Gallery(2, "Updated Gallery", "Updated Description", "Updated Location", 2, "9 AM - 6 PM");
         boolean result = service.updateGallery(gallery);
         assertTrue(result, "Gallery should be updated successfully.");
     }
 
     @Test
     void testRemoveGallery() {
-        boolean result = service.removeGallery(5); // Assuming gallery with ID 5 exists
+        boolean result = service.removeGallery(3); // Assuming gallery with ID 5 exists
         assertTrue(result, "Gallery should be removed successfully.");
     }
 

@@ -8,10 +8,9 @@ import java.io.IOException;
 
 public class DBConnection {
 
-    private static Connection connection = null;
+    
 
     public static Connection getConnection() throws IOException, ClassNotFoundException, SQLException {
-        if (connection == null) {
             Properties props = PropertyUtil.getConnectionProperties("src/database.properties");
 
             String url = props.getProperty("db.url");
@@ -20,8 +19,9 @@ public class DBConnection {
             String driver = props.getProperty("db.driver");
 
             Class.forName(driver);
-            connection = DriverManager.getConnection(url, user, pass);
-        }
+            Connection connection = DriverManager.getConnection(url, user, pass);
+            // System.out.println("Connected to DB!");
+        
         return connection;
     }
 }
